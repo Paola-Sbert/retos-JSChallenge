@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retos del JSChallenge | Primer Reto</title>
+</head>
+<body>
+    <header>
+        <h1>Elige la opción que más te conviene</h1>
+        <p>Seguramente muchas veces te habras preguntado que te costara más barato, si pagar una suscripción a una plataforma de streaming, o si pagar la entrada al cine para ver esa pelicula que tanto quieres ver.<br> Muy bien, aquí tenemos la respuesta!.</p>
+    </header>
+    <section>
+        <form>
+            <label>¿Cuantas pelis/series quieres ver este mes?</label>
+            <input type="number"/>
+        </form>
+    </section>
+    <section>
+        <form>
+            <label>Por favor selecciona las plataformas de streaming en laque puedes ver las series/pelis</label>
+            <br/>
+            <input type="checkbox"/>Netflix
+            <br/>
+            <input type="checkbox"/>Disney+
+            <br/>
+            <input type="checkbox"/>Amazon Prime
+            <br/>
+            <input type="checkbox"/>HBO Max
+        </form>
+    </section>
+    <section>
+        <form>
+            <label>¿A qué cine iras?</label>
+            <br/>
+            <input type="checkbox"/>Hoyts
+            <br/>
+            <input type="checkbox"/>Complejo Cinerama
+            <br/>
+            <input type="checkbox"/>Cines Dinosaurio Mall
+            <br/>
+            <input type="checkbox"/>Gran Rax
+        </form>
+    </section>
+    <div>
+        <button type="button" onclick="compararPrecios()">Comparar</button>
+    </div>
+    <script src="comparar.js"></script>
+</body>
+</html>
