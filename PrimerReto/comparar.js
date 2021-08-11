@@ -13,11 +13,10 @@ const cines = [
 ];
 
 function priceTicket(cinema){
-    const price = cines.find(function(cine){
-        return cine.name === cinema;
-    });
-    
-    return price.ticketPrice;
+    const cine = cines.find(function(cine){return cine.name === cinema});
+    if(cine){
+        return cine.ticketPrice;
+    }
 }
 
 function priceTotalPlatforms(platforms){
