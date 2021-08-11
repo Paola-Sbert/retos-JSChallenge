@@ -14,38 +14,32 @@
     <section>
         <form>
             <label>¿Cuantas pelis/series quieres ver este mes?</label>
-            <input type="number"/>
+            <input id="movieSeriesCount" type="number"/>
         </form>
-    </section>
-    <section>
         <form>
             <label>Por favor selecciona las plataformas de streaming en laque puedes ver las series/pelis</label>
             <br/>
-            <input type="checkbox"/>Netflix
+            <input type="checkbox" name="PlatformsStreaming" value="Netflix"/>Netflix
             <br/>
-            <input type="checkbox"/>Disney+
+            <input type="checkbox" name="PlatformsStreaming" value="Disney+"/>Disney+
             <br/>
-            <input type="checkbox"/>Amazon Prime
+            <input type="checkbox" name="PlatformsStreaming" value="Amazon Prime"/>Amazon Prime
             <br/>
-            <input type="checkbox"/>HBO Max
+            <input type="checkbox" name="PlatformsStreaming" value="HBO Max"/>HBO Max
         </form>
-    </section>
-    <section>
         <form>
             <label>¿A qué cine iras?</label>
             <br/>
-            <input type="checkbox"/>Hoyts
+            <input type="radio" name="Cines" value="Hoyts"/>Hoyts
             <br/>
-            <input type="checkbox"/>Complejo Cinerama
+            <input type="radio" name="Cines" value="ComplejoCinerama"/>Complejo Cinerama
             <br/>
-            <input type="checkbox"/>Cines Dinosaurio Mall
+            <input type="radio" name="Cines" value="CinesDinoMall"/>Cines Dinosaurio Mall
             <br/>
-            <input type="checkbox"/>Gran Rax
+            <input type="radio" name="Cines" value="GranRex"/>Gran Rax
         </form>
-    </section>
-    <div>
         <button type="button" onclick="compararPrecios()">Comparar</button>
-    </div>
+    </section>
     <script src="comparar.js"></script>
 </body>
 </html>
