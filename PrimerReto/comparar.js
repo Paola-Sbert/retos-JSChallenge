@@ -1,26 +1,49 @@
-const plataformsStreaming = [
-    {name: "Netflix", price:100},
-    {name: "Disney+", price:100},
-    {name: "Amazon Prime", price:100},
-    {name: "HBO Max", price:100}
+const platformsStreaming = [
+    {name: "Netflix", price:669},
+    {name: "Disney+", price:385},
+    {name: "Amazon Prime", price:400},
+    {name: "HBO Max", price:529}
 ];
 
 const cines = [
-    {name: "Hoyts", ticketPrice:100},
-    {name: "Complejo Cinerama", ticketPrice:100},
-    {name: "Cines Dinosaurio Mall", ticketPrice:100},
-    {name: "Gran Rex", ticketPrice:100},
+    {name: "Hoyts", ticketPrice:700},
+    {name: "Complejo Cinerama", ticketPrice:280},
+    {name: "Cines Dinosaurio Mall", ticketPrice:400},
+    {name: "Gran Rex", ticketPrice:300},
 ];
+
+function priceTicket(cinema){
+    const price = cines.find(function(cine){
+        return cine.name === cinema;
+    });
+    
+    return price.ticketPrice;
+}
+
+function priceTotalPlatforms(platforms){
+    let sumPrime = 0;
+    for (let i = 0; i < platforms.length; i++) {
+        for (let j = 0; j < platformsStreaming.length; j++) {
+            if(platformsStreaming[j].name === platforms[i]){
+                sumPrime += platformsStreaming[j].price;
+            }
+        }
+    }
+    return sumPrime;
+}
 
 function isChecked (element) {
     return element.checked;
 }
 
+
 function selectedPlatform(listPlatform) {
     
+    let selected = [];
+
     for (let i = 0; i < listPlatform.length; i++) {
         if(isChecked(listPlatform[i])){
-            selected = listPlatform[i].value;
+            selected.push(listPlatform[i].value);
         }   
     }
 
@@ -42,14 +65,21 @@ function compararPrecios(){
     
     const cantidad = document.getElementById("movieSeriesCount");
     const cantidadSeriesPelis = parseInt(cantidad.value);
-    console.log(cantidadSeriesPelis);
 
     const platforms = document.getElementsByName("PlatformsStreaming");
-    const chosenPlatform = selectedPlatform(platforms);
-    console.log(chosenPlatform);
+    const chosenPlatforms = selectedPlatform(platforms);
+
+    const pricePlatforms = priceTotalPlatforms(chosenPlatforms);
 
     const cinemas = document.getElementsByName("Cines");
     const chosenCinema = selectedCinema(cinemas);
-    console.log(chosenCinema);
+    
+    const priceTicketCinema = priceTicket(chosenCinema);
+    const priceTotalTickets = cantidadSeriesPelis * priceTicketCinema;
 
+    if(pricePlatforms <= priceTotalTickets){
+        document.getElementById("ComparisonResults").innerHTML = "Te conviene más pagar una suscripción ;)";
+    }else{
+        document.getElementById("ComparisonResults").innerHTML = "Te conviene más pagar las entradas al cine ;)";
+    }
 }
